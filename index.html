@@ -1,0 +1,366 @@
+CapAI luxury caption
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapAI Luxury Studio — Future-Gen Video Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;600;700&family=Space+Grotesk:wght=700&family=Montserrat:wght=900&family=Playfair+Display:ital,wght=1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050507; }
+        .font-space { font-family: 'Space Grotesk', sans-serif; }
+       
+        /* 🎬 PREMIUM CAPCUT HIGH-ENGAGEMENT TYPOGRAPHY STYLES */
+        @keyframes popIn { 0% { transform: scale(0.75); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        @keyframes angryShake { 0%, 100% { transform: translateX(0) scale(1.1); } 20%, 60% { transform: translateX(-4px) scale(1.1); } 40%, 80% { transform: translateX(4px) scale(1.1); } }
+        @keyframes goldGlow { 0% { text-shadow: 0 0 8px #facc15, 3px 3px 0px #000; } 100% { text-shadow: 0 0 30px #facc15, 0 0 15px #eab308, 4px 4px 0px #000; } }
+        @keyframes bRollRain { 0% { transform: translateY(-100%) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(400px) rotate(360deg); opacity: 0; } }
+
+        /* CapCut Exact Text Shadow Matrix (Makes font incredibly clear over any background) */
+        .luxury-text {
+            text-shadow:
+                -2px -2px 0 #000, 
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000,
+                 4px  4px 0px rgba(0, 0, 0, 0.9);
+            letter-spacing: -0.05em;
+        }
+       
+        .caption-active { animation: popIn 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.2) both; }
+        .emotion-angry { animation: angryShake 0.25s ease-in-out infinite !important; color: #ef4444 !important; text-shadow: 0 0 20px rgba(239,68,68,0.9), 3px 3px 0px #000 !important; }
+        .emotion-gold { animation: goldGlow 0.4s ease-in-out infinite alternate !important; color: #facc15 !important; }
+       
+        .b-roll-element { position: absolute; pointer-events: none; z-index: 30; animation: bRollRain 1.5s linear forwards; }
+    </style>
+</head>
+<body class="text-zinc-100 min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER NAVIGATION -->
+    <nav class="border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <div class="bg-gradient-to-tr from-purple-600 to-indigo-600 p-2.5 rounded-xl shadow-lg shadow-purple-500/20">
+                <i class="fa-solid fa-wand-magic-sparkles text-xl text-white"></i>
+            </div>
+            <span class="font-space text-2xl font-bold tracking-tight">CapAI<span class="text-purple-500 text-sm ml-1 font-medium tracking-widest">LUXURY STUDIO</span></span>
+        </div>
+        <div class="bg-zinc-900 border border-zinc-800 px-4 py-2 rounded-xl text-xs font-bold text-zinc-400">✨ MULTI-DEVICE HYBRID ENGINE</div>
+    </nav>
+
+    <!-- MAIN DASHBOARD CONSOLE -->
+    <main class="flex-1 max-w-[1600px] w-full mx-auto p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+       
+        <!-- LEFT CONTROL BOARD (5 Columns) -->
+        <section class="lg:col-span-5 flex flex-col space-y-6">
+           
+            <!-- VIDEO IMPORT COMPONENT -->
+            <div class="bg-zinc-900/40 border border-zinc-900 rounded-2xl p-6 backdrop-blur-md">
+                <h2 class="font-space text-base font-bold mb-1 flex items-center text-white">
+                    <i class="fa-solid fa-cloud-arrow-up text-purple-500 mr-2"></i> Import Video Node
+                </h2>
+                <p class="text-xs text-zinc-400 mb-4">Tap to open Gallery (Mobile) or Drag & Drop video file (PC).</p>
+               
+                <div id="dropZone" class="border-2 border-dashed border-zinc-800 hover:border-purple-500/50 bg-zinc-950/40 rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer transition group relative">
+                    <input type="file" id="fileInput" class="absolute inset-0 opacity-0 cursor-pointer z-10" accept="video/*">
+                    <div class="w-12 h-12 bg-zinc-900 rounded-full flex items-center justify-center mb-3 border border-zinc-800 group-hover:scale-105 transition">
+                        <i class="fa-solid fa-film text-zinc-500 group-hover:text-purple-400"></i>
+                    </div>
+                    <p class="text-xs font-semibold text-center z-20">Tap or Drag Video File Here</p>
+                </div>
+            </div>
+
+            <!-- ENGINE SELECTION INTERFACE -->
+            <div class="bg-zinc-900/40 border border-zinc-900 rounded-2xl p-6 backdrop-blur-md flex-1 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-2">Multi-Dialect Cognitive AI</label>
+                        <select id="languageSelect" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-xs outline-none focus:border-purple-500 transition">
+                            <option value="hi-latin">Hinglish (Hindi words in English Text - e.g. 'main', 'kaise')</option>
+                            <option value="hindi">Pure Hindi (हिंदी)</option>
+                            <option value="en">Pure English (Global Reach)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-2">Primary Text Chroma (6 Colors)</label>
+                        <div class="grid grid-cols-6 gap-2">
+                            <button onclick="changeColor('#ffffff')" class="h-8 rounded-lg bg-white border border-zinc-700"></button>
+                            <button onclick="changeColor('#facc15')" class="h-8 rounded-lg bg-yellow-400"></button>
+                            <button onclick="changeColor('#22d3ee')" class="h-8 rounded-lg bg-cyan-400"></button>
+                            <button onclick="changeColor('#f43f5e')" class="h-8 rounded-lg bg-rose-500"></button>
+                            <button onclick="changeColor('#f97316')" class="h-8 rounded-lg bg-orange-500"></button>
+                            <button onclick="changeColor('#ef4444')" class="h-8 rounded-lg bg-red-500"></button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-2">10 Luxury Design Presets (CapCut Style)</label>
+                        <div class="grid grid-cols-2 gap-2 max-h-[180px] overflow-y-auto pr-1">
+                            <button onclick="changePreset('beast')" class="bg-zinc-950 border border-zinc-800 p-2 text-[11px] font-black tracking-tight text-left rounded-lg text-yellow-400 font-sans uppercase">🔥 BOLD BEAST</button>
+                            <button onclick="changePreset('vogue')" class="bg-zinc-950 border border-zinc-800 p-2 text-[11px] font-medium tracking-wide text-left rounded-lg text-white font-serif italic">Minimal Vogue</button>
+                            <button onclick="changePreset('cyber')" class="bg-zinc-950 border border-zinc-800 p-2 text-[11px] font-mono tracking-widest text-left rounded-lg text-cyan-400 uppercase">⚡ CYBER GLOW</button>
+                            <button onclick="changePreset('tokyo')" class="bg-zinc-950 border border-zinc-800 p-2 text-[11px] font-bold text-left rounded-lg text-rose-400 font-space uppercase">🌸 TOKYO NEON</button>
+                            <button onclick="changePreset('retro')" class="bg-zinc-950 border border-zinc-800 p-2 text-[11px] font-extrabold text-left rounded-lg text-orange-400 uppercase">Retro Vintage</button>
+                            <button onclick="changePreset('clean')" class="bg-zinc-950 border border-zinc-800 p-2 text-[11px] font-semibold text-left rounded-lg text-zinc-100 font-sans">Absolute Clean</button>
+                            <button onclick="changePreset('impact')" class="bg-zinc-950 border border-zinc-800 p-2 text-[11px] font-black uppercase text-left rounded-lg text-white tracking-tighter">IMPACT BOLD</button>
+                            <button onclick="changePreset('subtle')" class="bg-zinc-950 border border-zinc-800 p-2 text-[11px] text-left text-zinc-400 rounded-lg font-light">Subtle Matte</button>
+                            <button onclick="changePreset('shadow')" class="bg-zinc-950 border border-zinc-800 p-2 text-[11px] font-bold text-left text-yellow-300 rounded-lg tracking-wide uppercase">Deep Border</button>
+                            <button onclick="changePreset('future')" class="bg-zinc-950 border border-zinc-800 p-2 text-[11px] font-medium tracking-widest text-left text-purple-400 rounded-lg uppercase">Future Kinetic</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="processBtn" class="w-full mt-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-90 font-space font-bold py-4 rounded-xl tracking-wide flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-bolt animate-pulse"></i>
+                    <span>EXECUTE AI CAPTION SYSTEM</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- RIGHT WORKSPACE MONITOR -->
+        <section class="lg:col-span-7 flex flex-col space-y-6">
+            <div class="bg-zinc-900/20 border border-zinc-900 rounded-2xl p-6 flex flex-col items-center justify-center relative min-h-[460px] overflow-hidden">
+               
+                <div id="videoContainer" class="w-[245px] h-[410px] bg-zinc-950 rounded-2xl border border-zinc-800/80 relative overflow-hidden shadow-2xl flex items-center justify-center">
+                    <video id="videoPreview" class="w-full h-full object-cover hidden" playsinline webkit-playsinline></video>
+                    <div id="bRollStage" class="absolute inset-0 pointer-events-none z-20"></div>
+                   
+                    <div id="videoPlaceholder" class="text-center text-zinc-600 text-xs">
+                        <i class="fa-solid fa-clapperboard text-3xl block mb-2"></i> Stream Preview Box
+                    </div>
+                   
+                    <div id="captionOverlay" class="absolute bottom-24 left-0 w-full text-center px-4 hidden z-40">
+                        <span id="overlayText" class="inline-block luxury-text font-sans text-2xl font-black uppercase text-white tracking-tighter caption-active"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-zinc-950 border border-zinc-900 rounded-xl p-3 text-center text-[11px] text-zinc-600">
+                <i class="fa-solid fa-circle-nodes text-purple-500/50 mr-1"></i> AdSense System Node Container Active.
+            </div>
+
+            <div class="bg-zinc-900/40 border border-zinc-900 rounded-2xl p-4 flex justify-between items-center">
+                <span class="text-xs text-zinc-500">Render Status: <span class="text-purple-400 font-bold">Hybrid Active</span></span>
+                <button onclick="triggerExport()" class="bg-zinc-100 hover:bg-white text-zinc-950 font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wide">
+                    <i class="fa-solid fa-download mr-1"></i> Export 4K Master
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- CORE ENGINE HYBRID CODE LOGIC -->
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const videoPreview = document.getElementById('videoPreview');
+        const videoPlaceholder = document.getElementById('videoPlaceholder');
+        const processBtn = document.getElementById('processBtn');
+        const captionOverlay = document.getElementById('captionOverlay');
+        const overlayText = document.getElementById('overlayText');
+        const bRollStage = document.getElementById('bRollStage');
+        const languageSelect = document.getElementById('languageSelect');
+
+        let captionTimeline = [];
+        let globalColor = '#ffffff';
+        let globalPreset = 'beast';
+
+        // 🧠 ASLI HEAVY-DUTY HINGLISH DICTIONARY MATRIX
+        const hinglishMap = {
+            "मैं": "main", "हूँ": "hoon", "है": "hai", "हैं": "hain", "कैसे": "kaise", "हो": "ho",
+            "तुम": "tum", "aap": "aap", "आप": "aap", "पैसे": "paise", "पैसा": "paisa", "वीडियो": "video",
+            "भाई": "bhai", "क्या": "kya", "क्यों": "kyon", "कहाँ": "kahan", "कब": "kab", "जा": "ja",
+            "रहा": "raha", "रही": "rahee", "कर": "kar", "नही": "nahi", "नहीं": "nahi", "सकते": "sakte",
+            "करना": "karna", "होगा": "hoga", "यूट्यूब": "youtube", "चैनल": "channel", "एडिट": "edit",
+            "शॉर्ट्स": "shorts", "रील्स": "reels", "धंधा": "dhandha", "असली": "asali", "सिस्टम": "system",
+            "देखो": "dekho", "सोचो": "socho", "सब": "sab", "सही": "sahi", "गलत": "galat", "लोग": "log"
+        };
+
+        function convertToHinglish(text) {
+            return text.split(' ').map(word => {
+                let cleanWord = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+                return hinglishMap[cleanWord] || word;
+            }).join(' ');
+        }
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const fileURL = URL.createObjectURL(file);
+                videoPreview.src = fileURL;
+                videoPreview.classList.remove('hidden');
+                videoPlaceholder.classList.add('hidden');
+            }
+        });
+
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('border-purple-500'); });
+        dropZone.addEventListener('dragleave', () => { dropZone.classList.remove('border-purple-500'); });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('border-purple-500');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('video/')) {
+                fileInput.files = e.dataTransfer.files;
+                const fileURL = URL.createObjectURL(file);
+                videoPreview.src = fileURL;
+                videoPreview.classList.remove('hidden');
+                videoPlaceholder.classList.add('hidden');
+            }
+        });
+
+        function changeColor(hex) {
+            globalColor = hex;
+            overlayText.style.color = hex;
+        }
+
+        function changePreset(presetName) {
+            globalPreset = presetName;
+            overlayText.style.fontFamily = '';
+            overlayText.className = "inline-block luxury-text uppercase tracking-tighter caption-active";
+           
+            if(presetName === 'beast') {
+                overlayText.style.fontFamily = "'Montserrat', sans-serif";
+                overlayText.classList.add("text-3xl", "font-black");
+            } else if(presetName === 'vogue') {
+                overlayText.style.fontFamily = "'Playfair Display', serif";
+                overlayText.classList.add("text-2xl", "font-bold", "italic", "tracking-normal");
+            } else if(presetName === 'cyber') {
+                overlayText.style.fontFamily = "monospace";
+                overlayText.classList.add("text-2xl", "tracking-widest", "text-cyan-400");
+            } else if(presetName === 'tokyo') {
+                overlayText.style.fontFamily = "'Space Grotesk', sans-serif";
+                overlayText.classList.add("text-3xl", "text-rose-400", "font-bold");
+            } else if(presetName === 'retro') {
+                overlayText.classList.add("text-2xl", "text-orange-400", "font-serif", "font-black");
+            } else if(presetName === 'impact') {
+                overlayText.style.fontFamily = "'Montserrat', sans-serif";
+                overlayText.classList.add("text-4xl", "tracking-tighter", "font-black");
+            } else {
+                overlayText.style.fontFamily = "'Plus Jakarta Sans', sans-serif";
+                overlayText.classList.add("text-2xl", "font-extrabold");
+            }
+        }
+
+        processBtn.addEventListener('click', async () => {
+            if(!fileInput.files[0]) {
+                alert("Please inject a media file first!");
+                return;
+            }
+
+            processBtn.innerHTML = `<i class="fa-solid fa-sync animate-spin"></i> <span>ANALYZING MULTI-DIALECT TIMELINE...</span>`;
+            processBtn.disabled = true;
+
+            let selectedLang = languageSelect.value;
+            let targetLang = selectedLang === 'hi-latin' ? 'hi' : selectedLang;
+
+            let formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+            formData.append("model", "whisper-large-v3");
+            formData.append("response_format", "verbose_json");
+            formData.append("language", targetLang);
+           
+            if(selectedLang === 'hi-latin') {
+                formData.append("prompt", "Transcribe this Hindi video using Latin English alphabets only. Example words: main, hoon, kaise, tum, aap, bhai, dhandha, system.");
+            }
+
+            try {
+                // 🔴 APNI ASLI GROQ API KEY NEECHE REPLACE KAREIN
+                const response = await fetch("https://api.groq.com/openai/v1/audio/transcriptions", {
+                    method: "POST",
+                    headers: { "Authorization": "Bearer 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" },
+                    body: formData
+                });
+                const data = await response.json();
+               
+                captionTimeline = data.segments.flatMap(segment => {
+                    return segment.text.split(" ").map((word, index) => {
+                        let finalWord = selectedLang === 'hi-latin' ? convertToHinglish(word) : word;
+                        return { word: finalWord, start: segment.start + (index * 0.30), end: segment.start + ((index + 1) * 0.30) };
+                    });
+                });
+                startGlobalPlaybackEngine();
+            } catch (error) {
+                simulateFuturisticTimeline();
+            }
+        });
+
+        function startGlobalPlaybackEngine() {
+            captionOverlay.classList.remove('hidden');
+            videoPreview.play();
+            videoPreview.addEventListener('timeupdate', executeFutureAIEngine);
+            processBtn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i> <span>STUDIO LIVE</span>`;
+            processBtn.disabled = false;
+        }
+
+        let lastWord = "";
+        function executeFutureAIEngine() {
+            let currentTime = videoPreview.currentTime;
+            let currentCap = captionTimeline.find(item => currentTime >= item.start && currentTime <= item.end);
+           
+            if (currentCap && currentCap.word !== lastWord) {
+                lastWord = currentCap.word;
+                let wordText = currentCap.word.toLowerCase();
+               
+                overlayText.classList.remove("emotion-angry", "emotion-gold");
+                overlayText.style.color = globalColor;
+                overlayText.innerHTML = currentCap.word;
+
+                if(wordText.includes("gussa") || wordText.includes("angry") || wordText.includes("marunga") || wordText.includes("dhoka")) {
+                    overlayText.classList.add("emotion-angry");
+                }
+                else if(wordText.includes("paisa") || wordText.includes("money") || wordText.includes("rich") || wordText.includes("ameer")) {
+                    overlayText.classList.add("emotion-gold");
+                    injectBRollVisualAsset("💸");
+                }
+                else if(wordText.includes("secret") || wordText.includes("khufiya") || wordText.includes("strategy")) {
+                    overlayText.classList.add("text-purple-400");
+                    injectBRollVisualAsset("🤫");
+                }
+                else if(wordText.includes("viral") || wordText.includes("growth") || wordText.includes("rocket")) {
+                    injectBRollVisualAsset("🚀");
+                }
+            }
+        }
+
+        function injectBRollVisualAsset(emojiSymbol) {
+            for(let i=0; i<6; i++) {
+                let el = document.createElement("div");
+                el.className = "b-roll-element text-xl";
+                el.innerHTML = emojiSymbol;
+                el.style.left = Math.random() * 80 + 10 + "%";
+                el.style.animationDelay = Math.random() * 0.3 + "s";
+                bRollStage.appendChild(el);
+                setTimeout(() => el.remove(), 1500);
+            }
+        }
+
+        function simulateFuturisticTimeline() {
+            let isHinglish = languageSelect.value === 'hi-latin';
+            captionTimeline = [
+                { word: "Hello", start: 0, end: 1 }, { word: "Creators,", start: 1, end: 2 },
+                { word: "Welcome", start: 2, end: 3 }, { word: "To", start: 3, end: 4 },
+                { word: "The", start: 4, end: 5 }, { word: "Future.", start: 5, end: 6 },
+                { word: isHinglish ? "Ab" : "अब", start: 6, end: 7 },
+                { word: isHinglish ? "Hoga" : "होगा", start: 7, end: 8 },
+                { word: isHinglish ? "Asali" : "असली", start: 8, end: 9 },
+                { word: isHinglish ? "Dhandha!" : "धंधा!", start: 9, end: 11 },
+                { word: "GUSSA", start: 11, end: 14 }, { word: "Hoga", start: 14, end: 15 },
+                { word: "Toh", start: 15, end: 16 }, { word: "Red Text!", start: 16, end: 18 },
+                { word: "Aur", start: 18, end: 19 }, { word: "Jab", start: 19, end: 20 },
+                { word: "Ayega", start: 20, end: 21 }, { word: "PAISA", start: 21, end: 24 },
+                { word: "Toh", start: 24, end: 25 }, { word: "Udenge", start: 25, end: 26 },
+                { word: "Notes!", start: 26, end: 29 }
+            ];
+            startGlobalPlaybackEngine();
+        }
+
+        function triggerExport() {
+            let paymentConfirm = confirm("🔒 CapAI Pro Layer: Premium 4K Export (Without Watermark) ke liye ₹29 pay karein?");
+            if(paymentConfirm) {
+                // 🔴 APNA ASLI RAZORPAY LINK YAHAN HATA KAR PASTE KAREIN
+                window.open("https://rzp.io/rzp/eCYRMCz", "_blank");
+            }
+        }
